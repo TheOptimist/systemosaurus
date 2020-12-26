@@ -16,7 +16,7 @@ install_command_line_tools() {
   # Unattended installation of Command Line Tools
   # Found on apple.stackexchange.com at https://apple.stackexchange.com/questions/107307/how-can-i-install-the-command-line-tools-completely-from-the-command-line/195963#195963
   # Homebrew uses a similar technique https://github.com/Homebrew/install/blob/878b5a18b89ff73f2f221392ecaabd03c1e69c3f/install#L297
-  xcode-select -p || {
+  xcode-select -p >/dev/null || {
     touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
     CLT=$( softwareupdate -l |
       grep "\*.*Command Line Tools" |
@@ -30,8 +30,18 @@ install_command_line_tools() {
   echo "Command Line Tools are installed at $(xcode-select -p)"
 }
 
+install_nix() {
+  command -v nix >/dev/null || {
+    printf "n\ny\ny" | sh <(curl -fsSL https://nixos.org/nix/install) --daemon --darwin-use-unencrypted-nix-store-volume
+    # Update local shell 
+    source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+  }
+  nix-shell -p nix-info --run "nix-info -m"
+}
+
 # Run the installation workflow
 sudo_prompt
 install_command_line_tools
+install_nix
 
 } # Prevent script running if partially downloaded
