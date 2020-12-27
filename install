@@ -60,6 +60,13 @@ install_nix_darwin() {
   }
 }
 
+install_home_manager() {
+  if [ ! $( nix-channel --list | grep home-manager ) ]; then
+    nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+    nix-channel --update
+  fi
+}
+
 install_homebrew() {
   command -v brew || {
     printf "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -100,6 +107,7 @@ sudo_prompt
 install_command_line_tools
 install_nix
 install_nix_darwin
+install_home_manager
 install_homebrew
 clone_repository
 darwin_build
