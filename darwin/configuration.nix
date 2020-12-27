@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ./preferences.nix ];
   environment = {
 
     systemPackages = with pkgs; [ bash fish zsh ];

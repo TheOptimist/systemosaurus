@@ -96,5 +96,6 @@ install_nix_darwin
 install_homebrew
 clone_repository
 darwin_build
+killall Dock
 
 } # Prevent script running if partially downloaded
