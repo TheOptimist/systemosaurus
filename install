@@ -62,7 +62,7 @@ install_nix_darwin() {
 
 install_homebrew() {
   command -v brew || {
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    printf "\n" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   }
   brew doctor
 }
