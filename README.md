@@ -6,6 +6,10 @@ Yolo!
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/TheOptimist/systemosaurus/main/install)"
 ```
+Not yet worked out how to change default shell for user (maybe with home manager), so...
+```
+chsh -s /run/current-system/sw/bin/zah
+```
 
 ## Goals
 [x] Installs Command Line Tools [silently](https://apple.stackexchange.com/questions/107307/how-can-i-install-the-command-line-tools-completely-from-the-command-line/195963#195963)  
