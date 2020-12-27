@@ -45,10 +45,10 @@ install_nix() {
 
 install_nix_darwin() {
   command -v darwin-rebuild >/dev/null || {
-    nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+    nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer --out-link /tmp/nix-darwin
 
     # nix-darwin controls nix.conf
-    sudo mv /etc/nix/nix.conf /etc/nix/nix.conf.backup-before-nix-darwin --out-link /tmp/nix-darwin
+    sudo mv /etc/nix/nix.conf /etc/nix/nix.conf.backup-before-nix-darwin
 
     # printf based on:
     #   - Would you like to edit the configuration.nix before starting? n
