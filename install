@@ -81,7 +81,7 @@ darwin_build() {
     fi
   done
 
-  set +u    # Unbound INSIDE_EMACS variable in /etc/bash_Apple_Terminal
+  set +u    # Unbound INSIDE_EMACS variable in /etc/bashrc_Apple_Terminal
   source /etc/static/bashrc
   set -u
   export NIX_PATH=$HOME/.nix-defexpr/channels:$NIX_PATH
