@@ -48,7 +48,7 @@ install_nix_darwin() {
     nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
 
     # nix-darwin controls nix.conf
-    sudo mv /etc/nix/nix.conf /etc/nix/nix.conf.backup-before-nix-darwin
+    sudo mv /etc/nix/nix.conf /etc/nix/nix.conf.backup-before-nix-darwin --out-link /tmp/nix-darwin
 
     # printf based on:
     #   - Would you like to edit the configuration.nix before starting? n
@@ -56,10 +56,15 @@ install_nix_darwin() {
     #   - Would you like to load Darwin configuration in /etc/bashrc? y
     #   - Would you like to load Darwin configuration in /etc/zshrc? y
     #   - Would you like to create /run? y
-    printf "n\ny\ny\ny\ny" | ./result/bin/darwin-installer
-
-    rm -rf result
+    printf "n\ny\ny\ny\ny" | /tmp/nix-darwin/bin/darwin-installer
   }
+}
+
+install_homebrew() {
+  command -v brew || {
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  }
+  brew doctor
 }
 
 # Run the installation workflow
@@ -67,5 +72,6 @@ sudo_prompt
 install_command_line_tools
 install_nix
 install_nix_darwin
+install_homebrew
 
 } # Prevent script running if partially downloaded

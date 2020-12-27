@@ -1,8 +1,6 @@
 # Systemosaurus
 My (currently Darwin only) system configuration and setup using [Nix](https://nixos.org) and [Nix-Darwin](https://github.com/LnL7/nix-darwin).
 
-Heavily inspired by [rummik's nix configuration](https://github.com/rummik/nixos-config) (very heavily).
-
 ## Installation
 Yolo!
 ```
@@ -24,3 +22,13 @@ Using "[unencrypted volume](https://nixos.org/manual/nix/stable/#sect-macos-inst
 
 ### Still using Homebrew?
 Yep, some packages are only available via brew or [mas](https://github.com/mas-cli/mas).
+
+## Inspiration
+Becaue I am far too early on in my journey with nix.
+
+Heavily inspired by:
+
+* https://github.com/rummik/nixos-config
+* https://github.com/kclejeune/system
+* https://github.com/malob/nixpkgs
+* https://github.com/lccambiaghi/nixpkgs
