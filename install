@@ -96,6 +96,10 @@ install_nix_darwin
 install_homebrew
 clone_repository
 darwin_build
+
+# Clean dock settings of applications
+defaults write com.apple.dock persistent-apps -array
+defaults write com.apple.dock recent-apps -array
 killall Dock
 
 } # Prevent script running if partially downloaded
