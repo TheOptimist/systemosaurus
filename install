@@ -68,9 +68,16 @@ install_homebrew() {
 }
 
 clone_repository() {
+  repository="https://github.com/TheOptimist/systemosaurus.git"
   clone_target="${HOME}/.nixpkgs"
-  rm -rf "${clone_target}"
-  git clone https://github.com/TheOptimist/systemosaurus.git "${clone_target}"
+  if [ $( cat "${clone_target}/.git/config" | grep "${repository}" ) ]; then
+    rm -rf "${clone_target}"
+    git clone https://github.com/TheOptimist/systemosaurus.git "${clone_target}"
+  else
+    cd "${clone_target}"
+    git status
+    cd -
+  fi
 }
 
 darwin_build() {
