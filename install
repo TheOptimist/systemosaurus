@@ -67,11 +67,34 @@ install_homebrew() {
   brew doctor
 }
 
+clone_repository() {
+  clone_target="${HOME}/.nixpkgs"
+  rm -rf "${clone_target}"
+  git clone https://github.com/TheOptimist/systemosaurus.git "${clone_target}"
+}
+
+darwin_build() {
+  for filename in shells bashrc zshrc; do
+    filepath="/etc/${filename}"
+    if [ -f "${filepath}" ] && [ ! -L "${filepath}" ]; then
+      sudo mv "${filepath}" "${filepath}.backup-before-nix-darwin"
+    fi
+  done
+
+  set +u    # Unbound INSIDE_EMACS variable in /etc/bash_Apple_Terminal
+  source /etc/static/bashrc
+  set -u
+  export NIX_PATH=$HOME/.nix-defexpr/channels:$NIX_PATH
+  darwin-rebuild switch -I "darwin-config=$HOME/.nixpkgs/darwin/configuration.nix"
+}
+
 # Run the installation workflow
 sudo_prompt
 install_command_line_tools
 install_nix
 install_nix_darwin
 install_homebrew
+clone_repository
+darwin_build
 
 } # Prevent script running if partially downloaded
