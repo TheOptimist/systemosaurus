@@ -20,7 +20,7 @@
 
   services.nix-daemon.enable = true;
 
-  programs.bashe.enable = true;
+  programs.bash.enable = true;
   programs.zsh.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
