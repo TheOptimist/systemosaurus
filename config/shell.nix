@@ -10,7 +10,6 @@ in
       environment = {
         systemPackages = with pkgs; [ bash fish zsh ];
         variables = {
-          SHELL = "${pkgs.zsh}/bin/zsh";
           XDG_CONFIG_HOME = "$HOME/.config";
           XDG_CACHE_HOME = "$HOME/.cache";
           XDG_SHARE_HOME = "$HOME/.local/share";

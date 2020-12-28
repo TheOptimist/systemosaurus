@@ -1,5 +1,5 @@
 # TODO: Use builtins to read all files in the directory.
-{ pkgs, options, ... }:
+{ pkgs, config, ... }:
 
 {
   environment = {
@@ -15,6 +15,10 @@
     maxJobs = 4;
     buildCores = 4;
   };
+
+  # Add ability to used TouchID for sudo authentication (custom module)
+  security.pam.enableSudoTouchIdAuth = true;
+  system.activationScripts.extraActivation.text = config.system.activationScripts.pam.text;
 
   system.stateVersion = 4;
 }
