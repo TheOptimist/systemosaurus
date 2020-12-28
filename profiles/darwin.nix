@@ -53,7 +53,7 @@
       # Show only open applications in the Dock. Default is false.
       static-only = true;
       # Size of the icons in the Dock. Default is 64.
-      tilesize = 64;
+      tilesize = 32;
     };
 
     # See https://github.com/LnL7/nix-darwin/blob/master/modules/system/defaults/finder.nix
