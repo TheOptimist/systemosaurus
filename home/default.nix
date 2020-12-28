@@ -5,6 +5,7 @@
     ./git.nix
     ./zsh.nix
     ./tmux.nix
+    ./alacritty.nix
 #    ./kitty.nix
   ];
 }
