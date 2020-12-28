@@ -27,6 +27,12 @@ Using "[unencrypted volume](https://nixos.org/manual/nix/stable/#sect-macos-inst
 ### Still using Homebrew?
 Yep, some packages are only available via brew or [mas](https://github.com/mas-cli/mas).
 
+## Layout
+* `config/` - Package installation and configuration
+* `home/` - Home-manager configuration and dotfile management
+* `modules/` - Modules to configure machine
+* `profiles/` - Configuration profiles (bit weak this one, it's fairly empty)
+
 ## Inspiration
 Becaue I am far too early on in my journey with nix. Heavily inspired by:
 
@@ -34,6 +40,8 @@ Becaue I am far too early on in my journey with nix. Heavily inspired by:
 * https://github.com/kclejeune/system
 * https://github.com/malob/nixpkgs
 * https://github.com/lccambiaghi/nixpkgs
+* https://github.com/kitten/nix-system
+* https://github.com/lucperkins/nix-home-config
 
 ## Future
 Move to using flakes? Some of the repositories above seem to shorten the install

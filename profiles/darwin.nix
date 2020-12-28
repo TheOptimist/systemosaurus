@@ -26,6 +26,9 @@
 
       # Sets the size of the finder sidebar icons: 1 (small), 2 (medium), or 3 (large). Default is 3.
       NSTableViewDefaultSizeMode = 1;
+
+      # Configures the trackpad tab behavior. Mode 1 enables tap to click.
+      "com.apple.mouse.tapBehavior" = 1;
     };
 
     # See https://github.com/LnL7/nix-darwin/blob/master/modules/system/defaults/loginwindow.nix
@@ -50,7 +53,7 @@
       # Show only open applications in the Dock. Default is false.
       static-only = true;
       # Size of the icons in the Dock. Default is 64.
-      tilesize = 32;
+      tilesize = 64;
     };
 
     # See https://github.com/LnL7/nix-darwin/blob/master/modules/system/defaults/finder.nix
