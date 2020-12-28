@@ -7,7 +7,7 @@ in
   mkMerge [
     {
       users.users.george.home = mkIf isDarwin "/Users/george";
-      home-manager.users.george = import ../home;
+      home-manager.users.george = (import ../home);
     }
   
     (optionalAttrs isLinux {

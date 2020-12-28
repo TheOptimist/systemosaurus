@@ -29,6 +29,15 @@ in rec {
     sessionVariables = {
       ZDOTDIR = "${xdgConfigHome}/zsh";
     };
+
+    # TODO: Work out how to get PowerLevel10k into zsh and xdg config
+    # plugins = [
+    #   {
+    #     name = "powerlevel10k";
+    #     src = pkgs.zsh-powerlevel10k;
+    #     file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    #   }
+    # ];
   };
 
 }

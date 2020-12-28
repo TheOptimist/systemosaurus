@@ -6,13 +6,13 @@
   imports = [
     ./fonts.nix
     ./shell.nix
-    ./kitty.nix
-    ./alacritty.nix
     ./vscode.nix
   ];
 
   environment.systemPackages = with pkgs; [
     exa
     httpie
+    alacritty
+    tmux
   ];
 }
