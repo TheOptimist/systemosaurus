@@ -1,11 +1,19 @@
 { pkgs, ... }:
 
 {
-  xdg.configFile = {
-    "alacritty/alacritty.yml".text = ''
-      shell:
-        # Use nix installed tmux
-        program: ${pkgs.tmux}/bin/tmux
-    '';
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      env = { "TERM" = "xterm-256color"; };
+
+      font = {
+        size = 12.0;
+        use_thin_strokes = true;
+
+        normal.family = "SauceCodePro Nerd Font";
+      };
+
+      shell = "${pkgs.tmux}/bin/tmux";
+    };
   };
 }

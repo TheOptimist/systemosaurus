@@ -5,12 +5,8 @@ let
 
 in {
 
-  programs.tmux = {
-    enable = true;
-    baseIndex = 1;
-    shortcut = "a";
-  };
-
+  programs.tmux.enable = true;
+  
   #xdg.configFile."tmux/tmux.conf".source = ./tmux.conf;
 
   programs.zsh.shellAliases = {
