@@ -16,9 +16,12 @@ in  {
   ];
 
   environment.systemPackages = with pkgs; [
-    exa
-    httpie
     alacritty
+    exa
     tmux
+    reattach-to-user-namespace
+
+    lastpass-cli
+    
   ];
 }
