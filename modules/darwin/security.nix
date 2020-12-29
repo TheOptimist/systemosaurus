@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 # Lifted directly from https://github.com/malob/nixpkgs/blob/master/darwin/modules/security/pam.nix
+# Pull request to nix-darwin https://github.com/LnL7/nix-darwin/pull/228
 with lib;
 
 let

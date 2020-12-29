@@ -4,5 +4,6 @@
 {
   imports = [
     ./security.nix
+    ./homebrew.nix
   ];
 }

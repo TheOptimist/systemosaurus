@@ -1,7 +1,11 @@
+{ pkgs, lib, ... }:
+
 # TODO: Use builtins to read all files in the directory.
-# TODO: Create a darwin directory for specific home configuration?
-{
-  imports = [
+let
+  inherit (lib) optional flatten;
+  inherit (lib.systems.elaborate { system = builtins.currentSystem; }) isLinux isDarwin;
+in {
+  imports = flatten [
     ./git.nix
     ./zsh.nix
     ./tmux

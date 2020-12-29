@@ -2,6 +2,11 @@
 { pkgs, config, ... }:
 
 {
+  imports = [
+    ./homebrew.nix
+    ./preferences.nix
+  ];
+  
   environment = {
     darwinConfig = "$HOME/.nixpkgs/configuration.nix";
   };

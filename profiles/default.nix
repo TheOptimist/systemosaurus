@@ -1,12 +1,19 @@
 { pkgs, lib, ... }:
 
 let
-  inherit (lib) optional flatten;
+  inherit (lib) optionalAttrs mkMerge mkIf mkDefault;
   inherit (lib.systems.elaborate { system = builtins.currentSystem; }) isLinux isDarwin;
-in {
+in
+  mkMerge [
+    {
+      users.users.george.home = mkIf isDarwin "/Users/george";
+      home-manager.users.george = (import ../home);
+    }
   
-  imports = flatten [
-    ./users.nix
-    (optional isDarwin ./darwin.nix)
-  ];
-}
+    (optionalAttrs isLinux {
+      users.users.george = {
+        isNormalUser = true;
+        home = "/home/george";
+      };
+    })
+  ]
