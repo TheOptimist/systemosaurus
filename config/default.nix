@@ -22,6 +22,6 @@ in  {
     reattach-to-user-namespace
 
     lastpass-cli
-    
+    awscli2
   ];
 }

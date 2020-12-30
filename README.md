@@ -12,12 +12,12 @@ chsh -s /run/current-system/sw/bin/zah
 ```
 
 ## Goals
-[x] Installs Command Line Tools [silently](https://apple.stackexchange.com/questions/107307/how-can-i-install-the-command-line-tools-completely-from-the-command-line/195963#195963)  
-[x] Installs [Nix](https://nixos.org)    
-[x] Installs [Nix-Darwin](https://github.com/LnL7/nix-darwin)  
-[x] Installs [HomeBrew](https://brew.sh)    
-[x] Clones this repository to the local machine  
-[x] Initiates first `darwin-rebuild` to switch configurations  
+- [x] Installs Command Line Tools [silently](https://apple.stackexchange.com/questions/107307/how-can-i-install-the-command-line-tools-completely-from-the-command-line/195963#195963)  
+- [x] Installs [Nix](https://nixos.org)    
+- [x] Installs [Nix-Darwin](https://github.com/LnL7/nix-darwin)  
+- [x] Installs [HomeBrew](https://brew.sh)    
+- [x] Clones this repository to the local machine  
+- [x] Initiates first `darwin-rebuild` to switch configurations  
 
 ### Nix on Darwin
 Installing with daemon for [multi-user](https://nixos.org/manual/nix/stable/#sect-multi-user-installation) despite there only being a single user on my Mac.

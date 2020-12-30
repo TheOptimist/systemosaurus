@@ -17,9 +17,13 @@
   ];
 
   homebrew.casks = [
+    "alfred"
+    "lastpass"
+
     "firefox"
     "google-chrome"
-    "lastpass"
+    "microsoft-edge"
+    
     "signal"
     "slack"
   ];
