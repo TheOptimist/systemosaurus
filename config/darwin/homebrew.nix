@@ -18,6 +18,7 @@
 
   homebrew.casks = [
     "alfred"
+
     "lastpass"
 
     "firefox"
@@ -25,6 +26,11 @@
     "microsoft-edge"
     
     "signal"
+    "skype"
     "slack"
+    "spark"
+    "whatsapp"
+
+    "rekordbox"
   ];
 }

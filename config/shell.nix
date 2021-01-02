@@ -3,6 +3,9 @@
 let
   inherit (lib) mkMerge mkForce optionalAttrs;
   inherit (lib.systems.elaborate { system = builtins.currentSystem; }) isLinux isDarwin;
+
+  homeDirectory = builtins.getEnv "HOME";
+  xdgConfigDirectory = "${homeDirectory}/.config";
 in
 
   mkMerge [
@@ -10,9 +13,11 @@ in
       environment = {
         systemPackages = with pkgs; [ bash fish zsh ];
         variables = {
-          XDG_CONFIG_HOME = "$HOME/.config";
-          XDG_CACHE_HOME = "$HOME/.cache";
-          XDG_SHARE_HOME = "$HOME/.local/share";
+          #ZDOTDIR = "\$XDG_CONFIG_HOME/zsh";
+
+          # '$' signs need to be escaped to make it into the shell properly (might be able to use builtins getEnv?)
+          # Ideally I'd be specifying this in home-manager, but can't make this work atm
+          #LPASS_HOME = "${xdgConfigDirectory}/lpass";
         };
 
       };
@@ -23,6 +28,7 @@ in
         # See: https://github.com/NixOS/nixpkgs/pull/38535
         promptInit = lib.mkDefault "";
       };
+
       programs.bash.enable = true;
     }
 

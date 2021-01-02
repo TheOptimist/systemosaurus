@@ -15,13 +15,29 @@ in  {
     (optional isDarwin ./darwin)
   ];
 
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flake";
+
+    maxJobs = 4;
+    buildCores = 4;
+  };
+
   environment.systemPackages = with pkgs; [
     alacritty
-    exa
     tmux
     reattach-to-user-namespace
+    
+    asciinema
+    asciinema-scenario
+    asciigraph
+
+    bat
+    exa
+    imgcat
 
     lastpass-cli
-    awscli2
+    #awscli2 # Try out whalebrew first?
   ];
+
 }

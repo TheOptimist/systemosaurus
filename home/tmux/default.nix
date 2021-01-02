@@ -1,16 +1,25 @@
-{ pkgs, lib, ... }:
+{ pkgs, config, ... }:
 
 let
-  inherit (lib.systems.elaborate { system = builtins.currentSystem; }) isLinux;
-
+  
 in {
 
-  programs.tmux.enable = true;
+  imports = [ 
+    #"./wrapper.nix"
+  ];
+  
+  programs.tmux = {
+    enable = true;
+    # TODO: Plugins here have to be added manually to the [custom configuration](./tmux.conf)
+    plugins = (with pkgs.tmuxPlugins; [
+      resurrect
+    ]);
+  };
 
   xdg.configFile."tmux/tmux.conf".source = ./tmux.conf;
 
   programs.zsh.shellAliases = {
-    tmux = "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf";
+    tmux = "tmux -f ${config.xdg.configHome}/tmux/tmux.conf";
     ta   = "tmux attach -t";
     ts   = "tmux new-session -s";
     tl   = "tmux list-sessions";

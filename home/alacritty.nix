@@ -4,16 +4,16 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      env = { "TERM" = "xterm-256color"; };
+      env = { "TERM" = "alacritty"; };
 
       font = {
-        size = 12.0;
+        size = 14.0;
         use_thin_strokes = true;
 
-        normal.family = "SauceCodePro Nerd Font";
+        normal.family = "Hack Nerd Font";
       };
 
-      shell = "${pkgs.tmux}/bin/tmux";
+      #shell = "${pkgs.tmux}/bin/tmux";
     };
   };
 }

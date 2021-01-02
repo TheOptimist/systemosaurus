@@ -27,7 +27,7 @@ let
       if ! grep '${authModule}' ${file} > /dev/null; then
         auth_entry=$(printf "%-10s %-14s %-24s %s" "auth" "${authLevel}" "${authModule}" "# nix-darwin: ${option}")
         sed -i "" "2i\\
-      $auth_entry
+          $auth_entry
         " ${file}
       fi
     '' else ''

@@ -7,8 +7,10 @@ let
 in {
   imports = flatten [
     ./git.nix
-    ./zsh.nix
+    ./zsh
     ./tmux
     ./alacritty.nix
   ];
+
+  xdg.enable = true;
 }

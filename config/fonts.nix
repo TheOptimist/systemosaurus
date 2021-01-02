@@ -10,7 +10,11 @@ in
     {
       fonts.fonts = with pkgs; flatten [
         (nerdfonts.override {
-          fonts = [ "FiraCode" "SourceCodePro" ];
+          fonts = [
+            "FiraCode"
+            "Hack"
+            "SourceCodePro"
+          ];
         })
       ];
     }
