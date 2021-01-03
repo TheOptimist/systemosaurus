@@ -72,5 +72,11 @@
       TrackpadRightClick = true;
     };
   };
+
+  # Found at https://superuser.com/questions/1420107/how-can-i-toggle-handoff-continuity-in-terminal-on-macos
+  system.activationScripts.extraUserActivation.text = ''
+    defaults -currentHost write com.apple.coreservices.useractivityd ActivityAdvertisingAllowed -bool no
+    defaults -currentHost write com.apple.coreservices.useractivityd ActivityReceivingAllowed -bool no
+  '';
 }
 

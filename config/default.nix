@@ -34,6 +34,7 @@ in  {
     bat
     exa
     imgcat
+    jq
 
     lastpass-cli
     awscli2
