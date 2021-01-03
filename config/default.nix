@@ -1,5 +1,4 @@
 # TODO: Use builtins to read all files in the directory.
-# TODO: Create a darwin directory for specific home configuration?
 { pkgs, lib, ... }:
 
 let
@@ -37,7 +36,7 @@ in  {
     imgcat
 
     lastpass-cli
-    #awscli2 # Try out whalebrew first?
+    awscli2
   ];
 
 }
