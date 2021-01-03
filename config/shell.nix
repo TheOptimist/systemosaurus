@@ -12,14 +12,6 @@ in
     {
       environment = {
         systemPackages = with pkgs; [ bash fish zsh ];
-        variables = {
-          #ZDOTDIR = "\$XDG_CONFIG_HOME/zsh";
-
-          # '$' signs need to be escaped to make it into the shell properly (might be able to use builtins getEnv?)
-          # Ideally I'd be specifying this in home-manager, but can't make this work atm
-          #LPASS_HOME = "${xdgConfigDirectory}/lpass";
-        };
-
       };
 
       programs.zsh = {

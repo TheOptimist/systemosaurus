@@ -3,34 +3,43 @@
 {
   system.activationScripts.extraUserActivation.text = config.system.activationScripts.homebrew.text;
 
-  homebrew.enable = true;
-  homebrew.autoUpdate = true;
-  homebrew.cleanup = "zap";
+  homebrew = {
+    enable = true;
+    autoUpdate = true;
+    cleanup = "zap";
 
-  homebrew.taps = [
-    "homebrew/cask"
-    "homebrew/cask-drivers"
-    "homebrew/cask-fonts"
-    "homebrew/cask-versions"
-    "homebrew/core"
-    "homebrew/services"
-  ];
+    taps = [
+      "homebrew/cask"
+      "homebrew/cask-drivers"
+      "homebrew/cask-fonts"
+      "homebrew/cask-versions"
+      "homebrew/core"
+      "homebrew/services"
+    ];
 
-  homebrew.casks = [
-    "alfred"
+    brews = [
+      "mas"
+    ];
 
-    "lastpass"
+    casks = [
+      "alfred"
 
-    "firefox"
-    "google-chrome"
-    "microsoft-edge"
-    
-    "signal"
-    "skype"
-    "slack"
-    "spark"
-    "whatsapp"
+      "lastpass"
 
-    "rekordbox"
-  ];
+      "firefox"
+      "google-chrome"
+      "microsoft-edge"
+      
+      "signal"
+      "skype"
+      "slack"
+      "whatsapp"
+
+      "rekordbox"
+    ];
+
+    masApps = {
+      Spark = 1176895641;
+    };
+  };
 }
