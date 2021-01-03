@@ -20,6 +20,7 @@ in {
     # TODO: Plugins here have to be added manually to the [custom configuration](./tmux.conf)
     plugins = (with pkgs.tmuxPlugins; [
       resurrect
+      continuum
     ]);
   };
 
