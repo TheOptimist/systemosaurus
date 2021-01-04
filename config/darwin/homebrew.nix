@@ -23,6 +23,7 @@
 
     casks = [
       "alfred"
+      "ubersicht"
 
       "lastpass"
 
@@ -35,6 +36,7 @@
       "slack"
       "whatsapp"
 
+      "spotify"
       "rekordbox"
     ];
 
