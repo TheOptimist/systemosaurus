@@ -31,11 +31,12 @@
       "google-chrome"
       "microsoft-edge"
       
+      "amazon-chime"
       "signal"
       "skype"
       "slack"
       "whatsapp"
-
+      
       "spotify"
       "rekordbox"
     ];
