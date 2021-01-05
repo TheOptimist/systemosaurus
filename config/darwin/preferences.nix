@@ -58,6 +58,8 @@
 
     # See https://github.com/LnL7/nix-darwin/blob/master/modules/system/defaults/finder.nix
     finder = {
+      # Whether to show icons on the desktop or not. Default is true.
+      CreateDesktop = false;
       # Whether to always show file extensions. Default is false.
       AppleShowAllExtensions = true;
       # Whether to show warnings when changing file extensions. Default is true.
@@ -70,6 +72,11 @@
       Clicking = true;
       # Whether to enable trackpad right click. Default is false.
       TrackpadRightClick = true;
+    };
+
+    screencapture = {
+      # The filesystem path to which screenshots should be written
+      location = "~/Screenshots";
     };
   };
 
