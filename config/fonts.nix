@@ -16,6 +16,11 @@ in
             "SourceCodePro"
           ];
         })
+
+        alegreya-sans
+        lato
+        noto-fonts
+        roboto
       ];
     }
 
