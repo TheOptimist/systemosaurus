@@ -25,7 +25,7 @@ export const render = () => {
   } else if (minutes < 20) {
     minuteWord = ones[minutes];
   } else {
-    let tenWord = tens[minute.toString().charAt(0)];
+    let tenWord = tens[minutes.toString().charAt(0)];
     let oneWord = minutes.toString().charAt(1) > 0 ? ones[minutes.toString().charAt(1)] : "";
     minuteWord = tenWord + oneWord;
   }
