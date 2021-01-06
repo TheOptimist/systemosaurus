@@ -25,7 +25,6 @@ in  {
   environment.systemPackages = with pkgs; [
     procs
 
-    alacritty
     tmux
     reattach-to-user-namespace
     

@@ -9,7 +9,6 @@ in {
     ./git.nix
     ./zsh
     ./tmux
-    ./alacritty.nix
   ];
 
   xdg.enable = true;

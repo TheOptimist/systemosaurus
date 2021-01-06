@@ -27,6 +27,10 @@
 
       "lastpass"
 
+      "alacritty"
+      "kitty"
+      "docker"
+
       "firefox"
       "google-chrome"
       "microsoft-edge"
