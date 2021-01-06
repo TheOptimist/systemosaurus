@@ -23,14 +23,12 @@ in  {
   };
 
   environment.systemPackages = with pkgs; [
+    procs
+
     alacritty
     tmux
     reattach-to-user-namespace
     
-    asciinema
-    asciinema-scenario
-    asciigraph
-
     bat
     exa
     imgcat
@@ -38,6 +36,10 @@ in  {
 
     lastpass-cli
     awscli2
+
+    asciinema
+    asciinema-scenario
+    asciigraph
   ];
 
 }
