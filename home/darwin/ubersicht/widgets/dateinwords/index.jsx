@@ -1,8 +1,9 @@
 //
 // Date in Words in JSX format
-// Based heavily on https://github.com/raphaelhanneken/time-in-words
 
-export const refreshFrequency = 1000 * 60 * 5; // five minutes
+export const refreshFrequency = 1000;
+
+export const command = (dispatch) => { dispatch(new Date()) };
 
 let ones = [null, "first", "second", "third", "fourth", "fifth",
   "sixth", "seventh", "eighth", "nineth", "tenth",
@@ -10,13 +11,11 @@ let ones = [null, "first", "second", "third", "fourth", "fifth",
   "sixteenth", "seventeenth", "eighteenth", "nineteenth"];
 let tens = [null, null, "twenty", "thirty"];
 
-export const render = ({output, error}) => {
+export const render = () => {
+  let now = new Date();
+  let month = now.toLocaleString('en', { month: 'long' });
+  let day = now.getDate();
 
-  const now = new Date();
-  
-  const monthWord = now.toLocaleString("en", { month: 'long' });
-  
-  const day = now.getDate();
   let dayWord = "";
 
   if (day < 20) {
@@ -27,11 +26,7 @@ export const render = ({output, error}) => {
     dayWord = tenWord + oneWord;
   }
 
-  return <div>
-    <span>{monthWord}</span><br />
-    <span>{dayWord}</span>
-  </div>;
-
+  return <div>{month}<br />{dayWord}</div>;
 };
 
 export const className = {
@@ -41,7 +36,7 @@ export const className = {
     left:           "1%",
     right:          "auto",
     fontFamily:     "Lato, 'Helvetica Neue', sans-serif",
-    color:           "#F5F5F5",
+    color:          "#F5F5F5",
     fontSize:       "5vw",
     fontWeight:     "200",
     letterSpacing:  "0.0em",
