@@ -5,7 +5,6 @@ let
   inherit (lib.systems.elaborate { system = builtins.currentSystem; }) isLinux isDarwin;
 
 in
-
   mkMerge [
     {
       fonts.fonts = with pkgs; flatten [
@@ -19,7 +18,6 @@ in
 
         alegreya-sans
         lato
-        noto-fonts
         roboto
       ];
     }

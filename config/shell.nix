@@ -4,14 +4,20 @@ let
   inherit (lib) mkMerge mkForce optionalAttrs;
   inherit (lib.systems.elaborate { system = builtins.currentSystem; }) isLinux isDarwin;
 
-  homeDirectory = builtins.getEnv "HOME";
-  xdgConfigDirectory = "${homeDirectory}/.config";
-in
+  xdgConfigHome = builtins.getEnv "XDG_CONFIG_HOME";
+  xdgDataHome = builtins.getEnv "$XDG_DATA_HOME";
+in 
 
   mkMerge [
     {
       environment = {
         systemPackages = with pkgs; [ bash fish zsh ];
+
+        variables = {
+          DOCKER_CONFIG = "${xdgConfigHome}/docker";
+          TERMINFO="${xdgDataHome}/terminfo";
+          TERMINFO_DIRS="${xdgDataHome}/terminfo:usr/share/terminfo";
+        };
       };
 
       programs.zsh = {
@@ -31,4 +37,4 @@ in
     (optionalAttrs isLinux {
       users.defaultUserShell = pkgs.zsh;
     })
-  ]    
+  ] 

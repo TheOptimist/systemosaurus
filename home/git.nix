@@ -1,4 +1,4 @@
-{pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.git = {
@@ -12,7 +12,11 @@
       ];
     };
 
-    delta.enable = true;
+    delta = {
+      enable = true;
+      #side-by-side = true;
+      #syntax_theme = "OneDark";
+    };
 
     userName = "George Cover";
     userEmail = "5285515+TheOptimist@users.noreply.github.com";
@@ -22,10 +26,5 @@
     aliases = {
       l = "log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %s %C(italic)- %an%C(reset)%C(magenta bold)%d%C(reset)' --all";
     };
-  };
-
-  programs.gh = {
-    enable = true;
-    gitProtocol = "ssh";
   };
 }    

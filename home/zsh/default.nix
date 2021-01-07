@@ -37,11 +37,6 @@ rec {
     ];
 
     sessionVariables = {
-      LPASS_HOME = "${config.xdg.configHome}/lpass";
-
-      TERMINFO="${config.xdg.dataHome}/terminfo";
-      TERMINFO_DIRS="${config.xdg.dataHome}/terminfo:usr/share/terminfo";
-
       AWS_SHARED_CREDENTIALS_FILE = "${config.xdg.configHome}/aws/credentials";
       AWS_CONFIG_FILE = "${config.xdg.configHome}/aws/config";
 
