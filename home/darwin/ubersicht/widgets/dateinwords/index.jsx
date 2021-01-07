@@ -1,7 +1,7 @@
 //
 // Date in Words in JSX format
 
-export const refreshFrequency = 1000;
+export const refreshFrequency = 1000 * 60;
 
 export const command = (dispatch) => { dispatch(new Date()) };
 
