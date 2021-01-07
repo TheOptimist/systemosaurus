@@ -43,6 +43,7 @@ in  {
       exa
       imgcat
       jq
+      less
 
       customGit
 
