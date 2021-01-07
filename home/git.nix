@@ -14,8 +14,10 @@
 
     delta = {
       enable = true;
-      #side-by-side = true;
-      #syntax_theme = "OneDark";
+      options = {
+        side-by-side = true;
+        syntax-theme = "gruvbox";
+      };
     };
 
     userName = "George Cover";
