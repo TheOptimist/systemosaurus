@@ -25,8 +25,6 @@
       "alfred"
       "ubersicht"
 
-      "alacritty"
-
       "firefox"
       "google-chrome"
       "microsoft-edge"
