@@ -19,8 +19,8 @@ in  {
   imports = flatten [
     ./docker.nix
     ./fonts.nix
-    ./kitty.nix
     ./shell.nix
+    ./terminal.nix
     ./vscode.nix
     ./home-manager.nix
     (optional isDarwin ./darwin)
@@ -37,9 +37,6 @@ in  {
   environment = {
     systemPackages = with pkgs; [
       procs
-
-      tmux
-      reattach-to-user-namespace
       
       bat
       exa
