@@ -17,7 +17,9 @@ let
 in  {
 
   imports = flatten [
+    ./docker.nix
     ./fonts.nix
+    ./kitty.nix
     ./shell.nix
     ./vscode.nix
     ./home-manager.nix

@@ -25,11 +25,7 @@
       "alfred"
       "ubersicht"
 
-      "lastpass"
-
       "alacritty"
-      "kitty"
-      "docker"
 
       "firefox"
       "google-chrome"
@@ -40,6 +36,7 @@
       "skype"
       "slack"
       "whatsapp"
+      "zoom"
       
       "spotify"
       "rekordbox"

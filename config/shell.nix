@@ -4,8 +4,9 @@ let
   inherit (lib) mkMerge mkForce optionalAttrs;
   inherit (lib.systems.elaborate { system = builtins.currentSystem; }) isLinux isDarwin;
 
-  xdgConfigHome = builtins.getEnv "XDG_CONFIG_HOME";
-  xdgDataHome = builtins.getEnv "$XDG_DATA_HOME";
+  homeDirectory = builtins.getEnv "HOME";
+  xdgConfigHome = "${homeDirectory}/.config";
+  xdgDataHome = "${homeDirectory}/.local/share";
 in 
 
   mkMerge [
@@ -14,19 +15,12 @@ in
         systemPackages = with pkgs; [ bash fish zsh ];
 
         variables = {
-          DOCKER_CONFIG = "${xdgConfigHome}/docker";
-          TERMINFO="${xdgDataHome}/terminfo";
-          TERMINFO_DIRS="${xdgDataHome}/terminfo:usr/share/terminfo";
+          TERMINFO = "${xdgDataHome}/terminfo";
+          TERMINFO_DIRS = "${xdgDataHome}/terminfo:usr/share/terminfo";
         };
       };
 
-      programs.zsh = {
-        enable = true;
-        # Prevent NixOS from clobbering prompts
-        # See: https://github.com/NixOS/nixpkgs/pull/38535
-        promptInit = lib.mkDefault "";
-      };
-
+      programs.zsh.enable = true;
       programs.bash.enable = true;
     }
 
