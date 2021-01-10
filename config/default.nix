@@ -27,8 +27,8 @@ in  {
   ];
 
   nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = "experimental-features = nix-command flake";
+    package = pkgs.nix;
+    #extraOptions = "experimental-features = nix-command flakes";
 
     maxJobs = 8;
     buildCores = 4;
