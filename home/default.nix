@@ -7,9 +7,9 @@ let
 in {
   imports = flatten [
     ./git.nix
+    ./shell
     ./terminal
     ./tmux
-    ./zsh
   ];
 
   xdg.enable = true;
