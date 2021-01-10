@@ -6,7 +6,7 @@ export const refreshFrequency = 1000 * 60;
 export const command = (dispatch) => { dispatch(new Date()) };
 
 let ones = [null, "first", "second", "third", "fourth", "fifth",
-  "sixth", "seventh", "eighth", "nineth", "tenth",
+  "sixth", "seventh", "eighth", "ninth", "tenth",
   "eleventh", "twelfth", "thirteenth", "fourteenth", "fifteenth",
   "sixteenth", "seventeenth", "eighteenth", "nineteenth"];
 let tens = [null, null, "twenty", "thirty"];
