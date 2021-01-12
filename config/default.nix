@@ -45,6 +45,7 @@ in  {
       less
 
       customGit
+      lazygit
 
       lastpass-cli
       awscli2
