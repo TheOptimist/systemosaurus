@@ -1,33 +1,34 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
+with lib;
 let
-  xdgConfigPath = builtins.getenv "XDG_CONFIG_HOME";
-  kittyConfig   = "${xdgConfigPath}/kitty";
-  kittyRepo     = "https://github.com/kovidgoyal/kitty.git";
-  themesPath    = "${kittyConfig}/themes";
-  themesRepo    = "https://github.com/dexpota/kitty-themes.git";
-  defaultTheme  = "OneDark";
+  kitty-themes = with pkgs; stdenv.mkDerivation rec {  
+    name = "kitty-themes";
+    src = fetchFromGitHub {
+      owner = "theoptimist";
+      repo = "kitty-themes";
+      rev = "fca3335489bdbab4cce150cb440d3559ff5400e2";
+      sha256 = "11dgrf2kqj79hyxhvs31zl4qbi3dz4y7gfwlqyhi4ii729by86qc";
+    };
+    installPhase = ''
+      mkdir -p $out
+      cp ${src}/themes/* $out/
+    '';
+  };
+
+  theme  = "OneDark";
 
 in {
 
   xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
 
-  # home.sessionVariables = {
-  #   TERMINFO = "$XDG_DATA_HOME/terminfo";
-  #   TERMINFO_DIRS = "${pkgs.kitty.terminfo.outPath}/share/terminfo:/usr/share/terminfo";
-  # };
+  home.sessionVariables = {
+    TERMINFO = "${config.xdg.dataHome}/terminfo";
+    TERMINFO_DIRS = "${config.xdg.dataHome}/share/terminfo:/usr/share/terminfo";
+  };
 
+  xdg.configFile."kitty/theme.conf".text = "include ${kitty-themes.outPath}/${theme}.conf";
 
-  # kitty-themes = with lib; trivialBuild {
-  #   pname = "kitty-themes";
-  #   version = "1.0.0";
-  #   src = pkgs.fetchFromGithub {
-  #     owner = "";
-  #     repo = "";
-  #     rev = "";
-  #     sha256 = "0z2n3h5l5fj8wl8i1ilfzv11l3zba14sgph6gz7dx7q12cnp9j22";
-  #   };
-  # };
   # config = {
   #   system.activationScripts.extraUserActivation.text = ''
   #     echo "Woohoo"
