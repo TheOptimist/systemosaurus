@@ -38,6 +38,8 @@
       
       "spotify"
       "rekordbox"
+
+      "radicle-upstream"
     ];
 
     masApps = {

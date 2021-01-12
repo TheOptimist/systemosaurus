@@ -35,7 +35,7 @@ in  {
   };
 
   environment = {
-    systemPackages = with pkgs; [
+    systemPackages = with pkgs; flatten [
       procs
       
       bat
@@ -53,6 +53,8 @@ in  {
       asciinema
       asciinema-scenario
       asciigraph
+
+      (optional isLinux radicle-upstream)
     ];
   };
 
