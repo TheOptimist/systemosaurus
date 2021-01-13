@@ -17,6 +17,12 @@ let
       version = "11.1.0";
       sha256 = "1xrz9f0nckx29wxpmlj1dqqiaal3002xwgzz5p9iss119sxgpwrx";
     }
+    {
+      name = "one-dark-dark-plus";
+      publisher = "brandonjmatthews";
+      version = "0.1.1";
+      sha256 = "1k3y57lc7b5a2hzxj0arqhnzghd19rdpjhp5gdydjz3hap329zzz";
+    }
   ]);
   customVSCode = pkgs.vscode-with-extensions.override {
     vscodeExtensions = extensions;
