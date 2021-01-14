@@ -40,5 +40,8 @@ in
     # Perhaps SKHD may solve a single app...maybe GUI apps should just be installed by homebrew
     (mkIf isDarwin {
       homebrew.casks = [ "kitty" ];
+      system.activationScripts.postActivation.text = ''
+        tic -xe xterm-kitty ${kitty-terminfo.outPath}/kitty.terminfo
+      '';
     })
   ]
