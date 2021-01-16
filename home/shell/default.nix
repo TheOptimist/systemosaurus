@@ -21,8 +21,19 @@ rec {
       ls = "exa -l";
       la = "exa -la";
       lt = "exa -l --tree";
+
+      cat = "bat";
     };
  
+    sessionVariables = {
+      LESSHISTFILE = "${config.xdg.dataHome}/less/history";
+
+      AWS_SHARED_CREDENTIALS_FILE = "${config.xdg.configHome}/aws/credentials";
+      AWS_CONFIG_FILE = "${config.xdg.configHome}/aws/config";
+
+      NVM_DIR="${config.xdg.dataHome}/nvm";
+    };
+
     plugins = [
       {
         name = "powerlevel10k";
@@ -34,15 +45,6 @@ rec {
         src = lib.cleanSource ./.;
         file = "p10k.zsh";
       }
-    ];
-
-    sessionVariables = {
-      AWS_SHARED_CREDENTIALS_FILE = "${config.xdg.configHome}/aws/credentials";
-      AWS_CONFIG_FILE = "${config.xdg.configHome}/aws/config";
-
-      NVM_DIR="${config.xdg.dataHome}/nvm";
-    };
-    
+    ];    
   };
-
 }
