@@ -32,7 +32,7 @@ in {
       enable = true;
       options = {
         side-by-side = true;
-        syntax-theme = "gruvbox";
+        syntax-theme = "TwoDark";
       };
     };
   };
