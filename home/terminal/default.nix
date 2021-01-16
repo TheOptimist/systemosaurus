@@ -1,7 +1,8 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, config, lib, ... }:
 
 with lib;
 let
+
   kitty-themes = with pkgs; stdenv.mkDerivation rec {  
     name = "kitty-themes";
     src = fetchFromGitHub {
@@ -16,36 +17,17 @@ let
     '';
   };
 
-  theme  = "OneDark";
+  theme     = "OneDark";
+  batTheme = "TwoDark"; # Why not make it the same :(
 
 in {
 
   xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
-
-  home.sessionVariables = {
-    TERMINFO = "${config.xdg.dataHome}/terminfo";
-    TERMINFO_DIRS = "${config.xdg.dataHome}/share/terminfo:/usr/share/terminfo";
-  };
-
   xdg.configFile."kitty/theme.conf".text = "include ${kitty-themes.outPath}/${theme}.conf";
-
-  # config = {
-  #   system.activationScripts.extraUserActivation.text = ''
-  #     echo "Woohoo"
-  #   '';
-  # };
-    # if [ ! $( infocmp xterm-kitty &>/dev/null) ]; then
-    #     kittyDir=$(mktemp -d -t kitty)
-    #     git clone --depth 1 "${kittyRepo}" "$kittyDir"
-    #     sudo tic -xe xterm-kitty $kittyDir/terminfo/kitty.terminfo
-    #   fi
-
-    #   echo "Removing themes at ${themesPath}"
-    #   rm -rf "${themesPath}";
-    #   echo "Cloning repository at ${themesRpo}"
-    #   git clone --depth 1 ${themesRepo} ${themesPath}
-
-    #   if [ ! -f "${kittyConfig}/theme.conf" ]; then
-    #     ln -s "${themesPath}/${defaultTheme}" "${kittyConfig}/theme.conf"
-    #   fi
+  
+  home.sessionVariables = {
+    TERMINFO_DIRS = "${config.xdg.dataHome}/terminfo:/usr/share/terminfo";
+  
+    BAT_THEME="${batTheme}";
+  };
 }
