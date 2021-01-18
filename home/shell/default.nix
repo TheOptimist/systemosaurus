@@ -7,17 +7,22 @@ rec {
 #    enableAutoSuggestions = true;
 #    enableCompletion = true;
 
-    # Frustratingly this has to be relative to $HOME
+    # Frustratingly this has to be relative to $HOME (so far)
+    # Using xdg.configHome ends up with a /Users/george/Users/george (at least in Darwin)
     # Be nicer if I didn't have to hardcode the XDG config directory
     dotDir = ".config/zsh";
 
     history = {
+      path = "${programs.zsh.dotDir}/.zsh_history";
       size = 5000;
       save = 50000;
       ignoreDups = true;
+      expireDuplicatesFirst = true;
     };
 
     shellAliases = {
+      reshell = "source ${config.xdg.configHome}/zsh/.zshrc";
+
       ls = "exa -l";
       la = "exa -la";
       lt = "exa -l --tree";
