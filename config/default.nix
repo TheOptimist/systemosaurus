@@ -48,7 +48,6 @@ in  {
       lazygit
 
       lastpass-cli
-      awscli2
 
       asciinema
       asciinema-scenario
