@@ -36,6 +36,7 @@
       "whatsapp"
       "zoom"
       
+      "audio-hijack"
       "spotify"
       "rekordbox"
 
