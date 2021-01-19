@@ -1,6 +1,9 @@
 { pkgs, lib, config, ... }:
 
-rec {
+let
+  functions = builtins.readFile ./functions.sh;
+
+in rec {
   programs.zsh = {
     enable = true;
     # TODO: These aren't recognised ??
@@ -45,6 +48,10 @@ rec {
 
       NVM_DIR="${config.xdg.dataHome}/nvm";
     };
+
+    initExtra = ''
+      ${functions}
+    '';
 
     plugins = [
       {
