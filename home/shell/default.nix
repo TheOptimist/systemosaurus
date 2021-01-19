@@ -30,9 +30,9 @@ rec {
       cat = "bat";
 
       # AWS in docker
-      aws = "docker --run -it -v ${config.xdg.configHome}/aws:/root/.aws amazon/aws-cli:2.1.18";
+      aws = "docker run --rm -it -v ${config.xdg.configHome}/aws:/root/.aws amazon/aws-cli:2.1.18";
       # OCI in docker
-      oci = "docker --run -it -v ${config.xdg.configHome}/oci:/root/.oci jpoon/oci-cli";
+      oci = "docker run --rm -it -v ${config.xdg.configHome}/oci:/root/.oci jpoon/oci-cli";
       # Terraform in docker
       terraform = "docker run --rm -it -v \${pwd}:/workspace -w workspace hashicorp/terraform:0.14.4";
     };
