@@ -14,5 +14,11 @@
 
   services.nix-daemon.enable = true;
 
+  networking = {
+    computerName = "cover-macbookpro";
+    localHostName = "cover-macbookpro";
+    hostName = "cover-macbookpro";
+  };
+
   system.stateVersion = 4;
 }
