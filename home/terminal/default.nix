@@ -1,6 +1,5 @@
 { pkgs, config, lib, ... }:
 
-with lib;
 let
 
   kitty-themes = with pkgs; stdenv.mkDerivation rec {  
@@ -25,9 +24,10 @@ in {
   xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
   xdg.configFile."kitty/theme.conf".text = "include ${kitty-themes.outPath}/${theme}.conf";
   
-  home.sessionVariables = {
-    TERMINFO_DIRS = "${config.xdg.dataHome}/terminfo:/usr/share/terminfo";
-  
-    BAT_THEME="${batTheme}";
+  home = {
+    sessionVariables = {
+      TERMINFO_DIRS = "${config.xdg.dataHome}/terminfo:/usr/share/terminfo";
+      BAT_THEME="${batTheme}";
+    };
   };
 }
