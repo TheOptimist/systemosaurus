@@ -10,12 +10,11 @@ in
     {
       # overkill and I'm not using them, but I want to try fish at some point
       environment = {
-        systemPackages = with pkgs; [ bash fish zsh ];
+        systemPackages = with pkgs; [ bash zsh ];
       };
 
       programs.zsh.enable = true;
       programs.bash.enable = true;
-      programs.fish.enable = true;
     }
 
     (optionalAttrs isDarwin {
