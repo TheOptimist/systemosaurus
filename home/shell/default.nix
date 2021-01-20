@@ -52,6 +52,8 @@ in rec {
 
     initExtra = ''
       ${functions}
+
+      compaudit | xargs chmod g-w
     '';
 
     plugins = [
