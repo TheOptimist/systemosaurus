@@ -26,9 +26,10 @@ in rec {
     shellAliases = {
       reshell = "source ${config.xdg.configHome}/zsh/.zshrc";
 
-      ls = "exa -l";
-      la = "exa -la";
-      lt = "exa -l --tree";
+      ls  = "exa -l";
+      la  = "exa -la";
+      lt  = "exa -l --tree --level 2";
+      lta = "exa -l --tree";
 
       cat = "bat";
 

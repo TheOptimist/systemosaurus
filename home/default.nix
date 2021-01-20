@@ -7,6 +7,7 @@ let
 in {
   imports = flatten [
     ./git.nix
+    ./lastpass.nix
     ./shell
     ./terminal
     ./tmux
