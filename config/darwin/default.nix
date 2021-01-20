@@ -9,7 +9,7 @@
   ];
 
   environment = {
-    darwinConfig = "$HOME/.nixpkgs/configuration.nix";
+    darwinConfig = "$HOME/.config/nixpkgs/configuration.nix";
   };
 
   services.nix-daemon.enable = true;
