@@ -8,7 +8,7 @@ export const command = (dispatch) => { dispatch(new Date()) };
 let ones = [null, "first", "second", "third", "fourth", "fifth",
   "sixth", "seventh", "eighth", "ninth", "tenth",
   "eleventh", "twelfth", "thirteenth", "fourteenth", "fifteenth",
-  "sixteenth", "seventeenth", "eighteenth", "nineteenth"];
+  "sixteenth", "seventeenth", "eighteenth", "nineteenth", "twentieth"];
 let tens = [null, null, "twenty", "thirty"];
 
 export const render = () => {
@@ -18,7 +18,7 @@ export const render = () => {
 
   let dayWord = "";
 
-  if (day < 20) {
+  if (day < 21) {
     dayWord = ones[day];
   } else {
     const tenWord = tens[day.toString().charAt(0)];
