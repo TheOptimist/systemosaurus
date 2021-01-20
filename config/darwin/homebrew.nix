@@ -49,17 +49,8 @@
     };
   };
 
-  # After installing an app via Homebrew, remove the quarantine flag
-  # It would be great if I understood this more. Opening the app anyway
-  # doesn't seem to remove the quarantine flag...so what's happening?
   system.activationScripts.extraUserActivation.text = ''
     ${config.system.activationScripts.homebrew.text}
-
-    echo >&2 "removing quarantine flags..."
-    find /Applications -xattrname com.apple.quarantine \
-      | while read file; do \
-          sudo xattr -r -d com.apple.quarantine "$file"; \
-        done
   '';
 
 }

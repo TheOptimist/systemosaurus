@@ -20,5 +20,8 @@
     hostName = "cover-macbookpro";
   };
 
+  # Disable quarantine for downloaded applications
+  # Still umming about this one...
+  system.defaults.LaunchServices.LSQaurantine = false;
   system.stateVersion = 4;
 }
