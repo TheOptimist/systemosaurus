@@ -16,6 +16,7 @@
     ];
 
     brews = [
+      "defaultbrowser"
       "mas"
     ];
 
