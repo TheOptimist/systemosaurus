@@ -32,20 +32,10 @@ in rec {
       lta = "exa -l --tree";
 
       cat = "bat";
-
-      # AWS in docker
-      aws = "docker run --rm -it -v ${config.xdg.configHome}/aws:/root/.aws amazon/aws-cli:2.1.18";
-      # OCI in docker
-      oci = "docker run --rm -it -v ${config.xdg.configHome}/oci:/root/.oci jpoon/oci-cli";
-      # Terraform in docker
-      terraform = "docker run --rm -it -v \${pwd}:/workspace -w workspace hashicorp/terraform:0.14.4";
     };
  
     sessionVariables = {
       LESSHISTFILE = "${config.xdg.dataHome}/less/history";
-
-      AWS_SHARED_CREDENTIALS_FILE = "${config.xdg.configHome}/aws/credentials";
-      AWS_CONFIG_FILE = "${config.xdg.configHome}/aws/config";
 
       NVM_DIR="${config.xdg.dataHome}/nvm";
     };
@@ -53,6 +43,7 @@ in rec {
     initExtra = ''
       ${functions}
 
+      # Fix homebrew directories that are group readable
       compaudit | xargs chmod g-w
     '';
 

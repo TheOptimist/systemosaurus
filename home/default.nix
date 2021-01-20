@@ -6,6 +6,7 @@ let
   inherit (lib.systems.elaborate { system = builtins.currentSystem; }) isLinux isDarwin;
 in {
   imports = flatten [
+    ./cloud.nix
     ./git.nix
     ./lastpass.nix
     ./shell
