@@ -22,6 +22,6 @@
 
   # Disable quarantine for downloaded applications
   # Still umming about this one...
-  system.defaults.LaunchServices.LSQaurantine = false;
+  system.defaults.LaunchServices.LSQuarantine = false;
   system.stateVersion = 4;
 }
