@@ -36,7 +36,7 @@ in rec {
  
     sessionVariables = {
       LESSHISTFILE = "${config.xdg.dataHome}/less/history";
-
+      CARGO_HOME = "${config.xdg.configHome}/cargo";
       NVM_DIR="${config.xdg.dataHome}/nvm";
     };
 
@@ -44,7 +44,7 @@ in rec {
       ${functions}
 
       # Fix homebrew directories that are group readable
-      compaudit | xargs chmod g-w
+      if [ ! compaudit ]; then compaudit | xargs chmod g-w; fi
 
       eval "$(direnv hook zsh)"
     '';
