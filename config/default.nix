@@ -34,17 +34,22 @@ in  {
     buildCores = 4;
   };
 
+  services.lorri.enable = true;
+  
   environment = {
     systemPackages = with pkgs; flatten [
+      niv
+
       procs
       
       bat
       exa
       imgcat
-      jq
       less
 
       customGit
+      httpie
+      jq
       lazygit
 
       lastpass-cli
