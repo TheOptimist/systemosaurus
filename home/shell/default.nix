@@ -45,6 +45,8 @@ in rec {
 
       # Fix homebrew directories that are group readable
       compaudit | xargs chmod g-w
+
+      eval "$(direnv hook zsh)"
     '';
 
     plugins = [

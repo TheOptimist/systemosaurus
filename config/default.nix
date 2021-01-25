@@ -35,10 +35,11 @@ in  {
   };
 
   services.lorri.enable = true;
-  
+
   environment = {
     systemPackages = with pkgs; flatten [
       niv
+      direnv
 
       procs
       
