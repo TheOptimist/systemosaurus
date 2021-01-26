@@ -23,12 +23,17 @@ let
       version = "0.1.1";
       sha256 = "1k3y57lc7b5a2hzxj0arqhnzghd19rdpjhp5gdydjz3hap329zzz";
     }
+    {
+      name= "rust";
+      publisher = "rust-lang";
+      version = "0.7.8";
+      sha256 = "039ns854v1k4jb9xqknrjkj8lf62nfcpfn0716ancmjc4f0xlzb3";
+    }
   ]);
   customVSCode = pkgs.vscode-with-extensions.override {
     vscodeExtensions = extensions;
   };
 
-in 
-{
+in {
   environment.systemPackages = [ customVSCode ];
 }
