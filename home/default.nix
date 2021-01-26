@@ -10,6 +10,7 @@ in {
     ./git.nix
     ./lastpass.nix
     ./shell
+    ./ssh.nix
     ./terminal
     ./tmux
   ];
