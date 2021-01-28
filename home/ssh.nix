@@ -9,7 +9,6 @@ in {
   programs.ssh = {
     enable = true;
     matchBlocks = {
-
       "github.com" = {
         hostname = "github.com";
         user = "github@georgecover.email";
@@ -17,6 +16,10 @@ in {
       };
     };
 
+    extraOptionOverrides = {
+      Include = "./config.local";
+    };
+    
     #TODO: Is UseKeychain doing anything at all now?
     extraConfig = ''
       IgnoreUnknown UseKeychain
