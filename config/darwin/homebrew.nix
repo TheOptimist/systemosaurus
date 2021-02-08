@@ -29,6 +29,7 @@
       "microsoft-edge"
       
       "amazon-chime"
+      "microsoft-teams"
       "signal"
       "skype"
       "slack"
