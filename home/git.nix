@@ -11,6 +11,12 @@ in {
     userName = "George Cover";
     userEmail = "5285515+TheOptimist@users.noreply.github.com";
     
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+    };
+
     ignores = flatten [
       (optional isDarwin ".DS_Store")
     ];
