@@ -32,6 +32,8 @@ in rec {
       lta = "exa -l --tree";
 
       cat = "bat";
+
+      please = "sudo";
     };
  
     sessionVariables = {
