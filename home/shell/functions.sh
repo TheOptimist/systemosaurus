@@ -11,3 +11,9 @@ function weather() {
 function checkip() {
   curl checkip.amazonaws.com
 }
+
+function guid() {
+  if [ $(which pbcopy) ]; then
+    uuidgen | pbcopy
+  fi
+}
