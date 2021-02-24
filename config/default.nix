@@ -48,6 +48,10 @@ in  {
       imgcat
       less
 
+      go
+      
+      packer
+      
       customGit
       httpie
       jq
