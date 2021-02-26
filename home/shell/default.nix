@@ -32,7 +32,7 @@ in rec {
       lta = "exa -l --tree";
 
       cat = "bat";
-
+      nixd = "darwin-rebuild";
       please = "sudo";
     };
  
