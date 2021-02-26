@@ -18,6 +18,7 @@
     brews = [
       "defaultbrowser"
       "mas"
+      "oci-cli"
     ];
 
     casks = [
