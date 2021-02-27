@@ -49,11 +49,11 @@ in  {
       less
 
       go
-      
       packer
       
       customGit
       httpie
+      ipcalc
       jq
       lazygit
 
