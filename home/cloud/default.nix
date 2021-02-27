@@ -9,7 +9,7 @@ let
 in {
   imports = [
     ./aws.nix
-    #./oci
+    ./oci
   ];
 
   home.packages = [ terraform ];
