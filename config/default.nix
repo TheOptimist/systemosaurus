@@ -44,6 +44,7 @@ in  {
       procs
       
       bat
+      curl
       exa
       imgcat
       less
