@@ -31,8 +31,9 @@ in rec {
       lt  = "exa -l --tree --level 2";
       lta = "exa -l --tree";
 
-      cat = "bat";
-      nixd = "darwin-rebuild";
+      cat    = "bat";
+      catp   = "cat -pp";
+      nixd   = "darwin-rebuild";
       please = "sudo";
     };
  
