@@ -45,6 +45,7 @@
       "parallels"
 
       "radicle-upstream"
+      "virtualbox"
     ];
 
     masApps = {

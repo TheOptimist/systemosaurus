@@ -33,7 +33,10 @@ in rec {
 
       cat    = "bat";
       catp   = "cat -pp";
+
       nixd   = "darwin-rebuild";
+      nixgc  = "nix-collect-garbage";
+      
       please = "sudo";
     };
  
