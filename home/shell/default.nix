@@ -48,7 +48,10 @@ in rec {
 
     initExtra = ''
       ${functions}
-
+      # kitty
+      bindkey "\e[1;3D" backward-word # ⌥←
+      bindkey "\e[1;3C" forward-word # ⌥→
+      
       # Fix homebrew directories that are group readable
       if [ ! compaudit ]; then compaudit | xargs chmod g-w; fi
 
