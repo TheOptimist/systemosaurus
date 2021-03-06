@@ -14,6 +14,6 @@ function checkip() {
 
 function guid() {
   if [ $(which pbcopy) ]; then
-    uuidgen | pbcopy
+    uuidgen | tr -d '\r\n' | pbcopy
   fi
 }
