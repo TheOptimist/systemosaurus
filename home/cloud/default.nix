@@ -12,5 +12,8 @@ in {
     ./oci
   ];
 
-  home.packages = [ terraform ];
+  home.packages = [
+    terraform
+    pkgs.tflint
+  ];
 }
