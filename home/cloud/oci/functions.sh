@@ -11,7 +11,7 @@ function my_compartment_id() {
 }
 
 function customer_stack() {
-  if [[ -z ${CUSTOMER_STACK} ]]; then
+  if [[ -z ${CUSTOMER_STACK} ]] || [[ "$2" == "--force" ]]; then
     CUSTOMER_STACK="$(oci resource-manager stack list --compartment-id "$(my_compartment_id)" --display-name "$1")"
   fi
   echo "${CUSTOMER_STACK}"
