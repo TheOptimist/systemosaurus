@@ -49,9 +49,10 @@
     ];
 
     masApps = {
-      Spark  = 1176895641;
-      Magnet = 441258766;
-      Pages  = 409201541;
+      Spark        = 1176895641;
+      Magnet       = 441258766;
+      Pages        = 409201541;
+      MicrosoftRDP = 1295203466;
     };
   };
 
