@@ -50,12 +50,15 @@ in rec {
       ${functions}
       # kitty
       bindkey "\e[1;3D" backward-word # ⌥←
-      bindkey "\e[1;3C" forward-word # ⌥→
+      bindkey "\e[1;3C" forward-word  # ⌥→
       
       # Fix homebrew directories that are group readable
       if [ ! compaudit ]; then compaudit | xargs chmod g-w; fi
 
       eval "$(direnv hook zsh)"
+
+      unsetopt share_history
+      setopt no_share_history
     '';
 
     plugins = [
