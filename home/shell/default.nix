@@ -38,6 +38,7 @@ in rec {
       nixgc  = "nix-collect-garbage";
       
       please = "sudo";
+      ktty = "echo \"/nix/store/\$(ls /nix/store | grep '^d.*kitty-terminfo' | awk '{print $7}')/kitty.terminfo\"";
     };
  
     sessionVariables = {
