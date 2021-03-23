@@ -26,18 +26,19 @@ in
   mkMerge [
     {
       environment.systemPackages = with pkgs; flatten [
-        (optional isLinux kitty)
-        (optional isDarwin kitty-terminfo)
         tmux
+        
+        (optional isLinux kitty)
+
+        (optional isDarwin kitty-terminfo)
         (optional isDarwin reattach-to-user-namespace)
       ];
     }
   
-    # TODO: Fix Alfred metadata, or create a workflow, so I can launch more easily
-    # Perhaps SKHD may solve a single app...maybe GUI apps should just be installed by homebrew
     (mkIf isDarwin {
       homebrew.casks = [ "kitty" ];
-      system.activationScripts.postActiation.text = ''
+      system.activationScripts.postActivation.text = ''
+        tic -xe xterm-kitty ${kitty-terminfo.outPath}/kitty.terminfo
         sudo tic -xe xterm-kitty ${kitty-terminfo.outPath}/kitty.terminfo
       '';
     })

@@ -38,7 +38,7 @@ in rec {
       nixgc  = "nix-collect-garbage";
       
       please = "sudo";
-      ktty = "echo \"/nix/store/\$(ls /nix/store | grep '^d.*kitty-terminfo' | awk '{print $7}')/kitty.terminfo\"";
+      ktty = "echo \"/nix/store/$(ls /nix/store | grep '^d.*kitty-terminfo' | awk '{print $7}')/kitty.terminfo\"";
     };
  
     sessionVariables = {
@@ -49,6 +49,7 @@ in rec {
 
     initExtra = ''
       ${functions}
+
       # kitty
       bindkey "\e[1;3D" backward-word # ⌥←
       bindkey "\e[1;3C" forward-word  # ⌥→
