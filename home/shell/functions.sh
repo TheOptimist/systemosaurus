@@ -27,3 +27,16 @@ function kterm() {
     ssh -q $server 'rm ~/kitty.terminfo'
   done
 }
+
+function swap_ssh_host() {
+  local -r host="$1"
+  local -r old_hostname="$( grep -w $host -A 3 ~/.ssh/config.local | awk '/HostName/ {print $2}' )"
+  local -r new_hostname="$2"
+  
+  if [[ "$3" == "--dry-run" ]]; then
+    sed "s/HostName $old_hostname/HostName $new_hostname/" ~/.ssh/config.local
+  else
+    # can't be bothered to work out linux/darwin and use `sed -i.bak`
+    sed "s/HostName $old_hostname/HostName $new_hostname/" ~/.ssh/config.local > ~/.ssh/config.local
+  fi
+}

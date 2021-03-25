@@ -26,7 +26,7 @@ function job_logs() {
 function get_instance() {
   local -r compartment_id="$(compartment_id $1)"
   local -r instance_name="$2"
-  oci compute instance list --compartment-id $compartment_id | jq --arg v "$instance_name" '.data[] | select(."display-name"==$v)'
+  oci compute instance list --compartment-id $compartment_id --lifecycle-state RUNNING | jq --arg v "$instance_name" '.data[] | select(."display-name"==$v)'
 }
 
 function get_public_ip() {
