@@ -17,3 +17,13 @@ function guid() {
     uuidgen | tr -d '\r\n' | pbcopy
   fi
 }
+
+function kterm() {
+  for server in "$@"; do
+    # ktty is an alias defined elsewhere
+    scp -q $(ktty) $server:~/kitty.terminfo
+    ssh -q $server 'tic -xe xterm-kitty ~/kitty.terminfo'
+    ssh -q $server 'sudo tic -xe xterm-kitty ~/kitty.terminfo'
+    ssh -q $server 'rm ~/kitty.terminfo'
+  done
+}
