@@ -37,10 +37,14 @@ function swap_ssh_host() {
     sed "s/HostName $old_hostname/HostName $new_hostname/" ~/.ssh/config.local
   else
     # can't be bothered to work out linux/darwin and use `sed -i.bak`
-    local -r content="$(sed "s/HostName $old_hostname/HostName $new_hostname/" ~/.ssh/config.local)"
+    local -r new_config="$(sed "s/HostName $old_hostname/HostName $new_hostname/" ~/.ssh/config.local)"
     if [[ $? ]]; then
-      echo "${content}" > ~/.ssh/config.local
+      echo "${new_config}" > ~/.ssh/config.local
     fi
-
+    
+    local -r new_known_hosts="$(sed "/^$old_hostname/d" ~/.ssh/known_hosts)"
+    if [[ $? ]]; then
+      echo "${new_known_hosts}" > ~/.ssh/known_hosts
+    fi
   fi
 }
