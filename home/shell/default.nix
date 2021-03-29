@@ -61,6 +61,9 @@ in rec {
 
       unsetopt share_history
       setopt no_share_history
+
+      ln -s -f ~/.config/nixpkgs/home/shell/tmux.conf ~/.tmux.conf
+      ln -s -f ~/.config/nixpkgs/home/shell/tmux.conf.local ~/.tmux.conf.local
     '';
 
     plugins = [

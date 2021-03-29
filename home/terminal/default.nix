@@ -16,7 +16,7 @@ let
     '';
   };
 
-  theme     = "OneDark";
+  theme    = "OneDark";
   batTheme = "TwoDark"; # Why not make it the same :(
 
 in {

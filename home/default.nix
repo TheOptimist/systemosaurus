@@ -12,7 +12,6 @@ in {
     ./shell
     ./ssh.nix
     ./terminal
-    ./tmux
   ];
 
   xdg.enable = true;

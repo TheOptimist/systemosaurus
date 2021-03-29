@@ -34,10 +34,9 @@ function swap_ssh_host() {
   local -r new_hostname="$2"
   
   if [[ "$3" == "--dry-run" ]]; then
-    sed "s/HostName $old_hostname/HostName $new_hostname/" ~/.ssh/config.local
+    sed "s/^HostName ${old_hostname}$/HostName ${new_hostname}/" ~/.ssh/config.local
   else
-    # can't be bothered to work out linux/darwin and use `sed -i.bak`
-    local -r new_config="$(sed "s/HostName $old_hostname/HostName $new_hostname/" ~/.ssh/config.local)"
+    local -r new_config="$(sed "s/HostName ${old_hostname}/HostName ${new_hostname}/" ~/.ssh/config.local)"
     if [[ $? ]]; then
       echo "${new_config}" > ~/.ssh/config.local
     fi
