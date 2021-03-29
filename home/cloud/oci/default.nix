@@ -4,6 +4,7 @@ let
   ociConfigPath = "${config.xdg.configHome}/oci";
   ociConfigFile = "${ociConfigPath}/config";
   functions = builtins.readFile ./functions.sh;
+  localFunctions = builtins.readFile ./functions.local.sh;
 
 in {
   
@@ -18,6 +19,7 @@ in {
 
     initExtra = ''
       ${functions}
+      ${localFunctions}
       mkdir -p ${ociConfigPath}
     '';
   };
