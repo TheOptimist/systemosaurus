@@ -48,6 +48,7 @@ in  {
       exa
       imgcat
       less
+      ripgrep
       tmux
 
       go

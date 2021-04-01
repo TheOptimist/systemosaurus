@@ -13,6 +13,7 @@
       "homebrew/cask-versions"
       "homebrew/core"
       "homebrew/services"
+      "railwaycat/emacsmacport"
     ];
 
     brews = [
@@ -54,6 +55,10 @@
       Pages        = 409201541;
       MicrosoftRDP = 1295203466;
     };
+
+    extraConfig = ''
+      brew "emacs-mac", args: [ "with-modules", "with-mac-metal" ]
+    '';
   };
 
   system.activationScripts.extraUserActivation.text = ''
