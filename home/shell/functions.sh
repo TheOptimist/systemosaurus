@@ -29,6 +29,10 @@ function kterm() {
 }
 
 function swap_ssh_host() {
+  if [[ -z "${1+x}" ]]; then
+    echo "Hostname is mandatory"
+    return 1
+  fi
   local -r host="$1"
   local -r old_hostname="$( grep -w $host -A 3 ~/.ssh/config.local | awk '/HostName/ {print $2}' )"
   local -r new_hostname="$2"

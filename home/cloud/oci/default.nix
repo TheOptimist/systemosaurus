@@ -15,7 +15,7 @@ in {
 
     shellAliases = {
       oci = "oci --config-file ${ociConfigFile}";
-      swap-bastion = "() { swap_ssh_host bastion \$(get_public_ip \$1 bastion); kterm bastion router dc01 dc02 proxy; }";      
+      swap-bastion = "() { if [[ -z \"\${1+x}\" ]]; then return 1; fi; swap_ssh_host bastion \$(get_public_ip \$1 bastion); kterm bastion router dc01 dc02 proxy; }";      
     };
 
     initExtra = ''
