@@ -54,6 +54,7 @@
       Magnet       = 441258766;
       Pages        = 409201541;
       MicrosoftRDP = 1295203466;
+      Amphetamine  = 937984704;
     };
 
     extraConfig = ''
