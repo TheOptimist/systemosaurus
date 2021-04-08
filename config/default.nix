@@ -44,6 +44,7 @@ in  {
       procs
       
       bat
+      cowsay
       curl
       exa
       imgcat
