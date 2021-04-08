@@ -12,15 +12,16 @@ function my_compartment_id() {
 }
 
 function get_stack() {
-  oci resource-manager stack list --compartment-id "$(my_compartment_id)" | jq --arg s "$1" '.data[] | select(."display-name" | startswith($s))'
+  oci resource-manager stack list --compartment-id "$(my_compartment_id)" --sort-by TIMECREATED --sort-order DESC | jq --arg s "$1" '[.data[] | select(."display-name" | startswith($s))][0]'
 }
 
 function most_recent_job() {
-  oci resource-manager job list --stack-id "$(get_stack "$1" | jq -r '.data[].id')" | jq -r '.data | sort_by(."time-created") | .[-1]'
+  oci resource-manager job list --stack-id "$(get_stack "$1" | jq -r '.id')" | jq -r '.data | sort_by(."time-created") | .[-1]'
 }
 
 function job_logs() {
-  echo -e "$(oci resource-manager job get-job-logs-content --job-id "$(most_recent_job "$1" | jq -r '.id')" | jq -r '.data')"
+  local -r logs="$(oci resource-manager job get-job-logs-content --job-id "$(most_recent_job "$1" | jq -r '.id')" | jq -r '.data')"
+  echo -e $logs | grep "$2"
 }
 
 function get_instance() {
