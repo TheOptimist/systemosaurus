@@ -42,6 +42,7 @@ in rec {
     };
  
     sessionVariables = {
+      GITHUB_EMAIL = "5285122+TheOptimist@users.noreply.github.com";
       LESSHISTFILE = "${config.xdg.dataHome}/less/history";
       CARGO_HOME = "${config.xdg.configHome}/cargo";
       NVM_DIR="${config.xdg.dataHome}/nvm";

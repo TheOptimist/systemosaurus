@@ -1,7 +1,8 @@
 { pkgs, lib, ... }:
 
+with lib;
+
 let 
-  inherit (lib) optional flatten;
   inherit (lib.systems.elaborate { system = builtins.currentSystem; }) isLinux isDarwin;
 
 in {
@@ -11,6 +12,14 @@ in {
     userName = "George Cover";
     userEmail = "5285515+TheOptimist@users.noreply.github.com";
     
+
+    signing = {
+      key = "D39BD3823FE4EBCA";
+      signByDefault = true;
+      # Yep, only works on Mac right now...
+      gpgPath = "/usr/local/bin/gpg";
+    };
+
     extraConfig = {
       init = {
         defaultBranch = "main";

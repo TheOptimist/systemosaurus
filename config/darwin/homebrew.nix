@@ -18,6 +18,9 @@
 
     brews = [
       "defaultbrowser"
+      "gpg"
+      "librsvg"
+      "pinentry-mac"
       "mas"
       "oci-cli"
     ];
