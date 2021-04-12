@@ -43,7 +43,7 @@ function get_instance() {
 function get_public_ip() {
   local -r compartment_id="$(compartment_id $1)"
   local -r instance_id="$(get_instance $compartment_id $2 | jq -r '.id')"
-  local -r vnic_id="$(oci compute vnic-attachment list --compartment-id $compartment_id | jq -r --arg v "$instance_id" '.data[] | select(."instance-id"==$v) | ."vnic-id"')"
+  local -r vnic_id="$(oci compute vnic-attachment list --compartment-id $compartment_id --all | jq -r --arg v "$instance_id" '.data[] | select(."instance-id"==$v) | ."vnic-id"')"
   oci network vnic get --vnic-id $vnic_id | jq -r '.data."public-ip"'
 }
 
