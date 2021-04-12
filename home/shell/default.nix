@@ -46,6 +46,7 @@ in rec {
  
     sessionVariables = {
       GITHUB_EMAIL = "5285122+TheOptimist@users.noreply.github.com";
+      GITHUB_API_TOKEN = "$(lp show --password api_tokens/github_tehama)";
       GPG_TTY = "$(tty)";
       LESSHISTFILE = "${config.xdg.dataHome}/less/history";
       CARGO_HOME = "${config.xdg.configHome}/cargo";
