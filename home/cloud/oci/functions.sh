@@ -21,7 +21,17 @@ function most_recent_job() {
 
 function job_logs() {
   local -r logs="$(oci resource-manager job get-job-logs-content --job-id "$(most_recent_job "$1" | jq -r '.id')" | jq -r '.data')"
-  echo -e $logs | grep "$2"
+  if [[ -n "${2+x}" ]]; then
+    local output="$( echo $logs | grep -v ' module.')"
+    for module in "${@:2}"; do
+      echo "Finding content in logs for $module"
+      module_output="$( echo $logs | grep $module )"
+      output="$( echo $output + $module_output) "
+    done
+    echo -e $output | sort
+  else
+    echo -e $logs
+  fi
 }
 
 function get_instance() {
