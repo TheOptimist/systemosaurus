@@ -14,7 +14,6 @@
       "homebrew/core"
       "homebrew/services"
       "railwaycat/emacsmacport"
-      "hashicorp/tap"
     ];
 
     brews = [
@@ -53,9 +52,6 @@
       "meld"
       "radicle-upstream"
       "virtualbox"
-
-      "hashicorp/tap/nomad"
-      "hasicorop/tap/consul"
     ];
 
     masApps = {

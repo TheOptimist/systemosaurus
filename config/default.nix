@@ -69,6 +69,9 @@ in  {
       asciigraph
 
       (optional isLinux radicle-upstream)
+
+      nomad
+      consul
     ];
   };
 
