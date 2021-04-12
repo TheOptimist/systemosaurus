@@ -48,6 +48,7 @@ in  {
       curl
       exa
       imgcat
+      imagemagick
       less
       ripgrep
       tmux

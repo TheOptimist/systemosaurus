@@ -19,6 +19,7 @@
     brews = [
       "defaultbrowser"
       "gpg"
+      "graphviz"
       "librsvg"
       "pinentry-mac"
       "mas"
@@ -48,6 +49,7 @@
 
       "parallels"
 
+      "meld"
       "radicle-upstream"
       "virtualbox"
     ];

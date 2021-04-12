@@ -37,12 +37,16 @@ in rec {
       nixd   = "darwin-rebuild";
       nixgc  = "nix-collect-garbage";
       
+      isvg = "rsvg-convert | icat";
+      icat = "kitty icat --align=left";
+
       please = "sudo";
       ktty = "echo \"/nix/store/$(ls /nix/store | grep '^d.*kitty-terminfo' | awk '{print $7}')/kitty.terminfo\"";
     };
  
     sessionVariables = {
       GITHUB_EMAIL = "5285122+TheOptimist@users.noreply.github.com";
+      GPG_TTY = "$(tty)";
       LESSHISTFILE = "${config.xdg.dataHome}/less/history";
       CARGO_HOME = "${config.xdg.configHome}/cargo";
       NVM_DIR="${config.xdg.dataHome}/nvm";
@@ -65,6 +69,8 @@ in rec {
 
       ln -s -f ~/.config/nixpkgs/home/shell/tmux.conf ~/.tmux.conf
       ln -s -f ~/.config/nixpkgs/home/shell/tmux.conf.local ~/.tmux.conf.local
+
+      export PATH="/usr/local/sbin:$PATH";
     '';
 
     plugins = [
