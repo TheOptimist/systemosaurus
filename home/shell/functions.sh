@@ -37,17 +37,21 @@ function swap_ssh_host() {
   local -r old_hostname="$( grep -w $host -A 3 ~/.ssh/config.local | awk '/HostName/ {print $2}' )"
   local -r new_hostname="$2"
   
-  if [[ "$3" == "--dry-run" ]]; then
-    sed "s/^HostName ${old_hostname}$/HostName ${new_hostname}/" ~/.ssh/config.local
-  else
-    local -r new_config="$(sed "s/HostName ${old_hostname}/HostName ${new_hostname}/" ~/.ssh/config.local)"
-    if [[ $? ]]; then
-      echo "${new_config}" > ~/.ssh/config.local
+  if [[ -n "${new_hostname+x}" ]]; then
+
+    if [[ "$3" == "--dry-run" ]]; then
+      sed "s/^HostName ${old_hostname}$/HostName ${new_hostname}/" ~/.ssh/config.local
+    else
+      local -r new_config="$(sed "s/HostName ${old_hostname}/HostName ${new_hostname}/" ~/.ssh/config.local)"
+      if [[ $? ]]; then
+        echo "${new_config}" > ~/.ssh/config.local
+      fi
+      
+      local -r new_known_hosts="$(sed "/^$old_hostname/d" ~/.ssh/known_hosts)"
+      if [[ $? ]]; then
+        echo "${new_known_hosts}" > ~/.ssh/known_hosts
+      fi
     fi
-    
-    local -r new_known_hosts="$(sed "/^$old_hostname/d" ~/.ssh/known_hosts)"
-    if [[ $? ]]; then
-      echo "${new_known_hosts}" > ~/.ssh/known_hosts
-    fi
+
   fi
 }
