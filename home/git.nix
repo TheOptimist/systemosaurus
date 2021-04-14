@@ -10,7 +10,7 @@ in {
     enable = true;
 
     userName = "George Cover";
-    userEmail = "5285515+TheOptimist@users.noreply.github.com";
+    userEmail = "5285122+TheOptimist@users.noreply.github.com";
     
 
     signing = {
