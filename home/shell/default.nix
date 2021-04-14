@@ -36,7 +36,7 @@ in rec {
 
       nixd   = "darwin-rebuild";
       nixgc  = "nix-collect-garbage";
-      
+
       isvg = "rsvg-convert | icat";
       icat = "kitty icat --align=left";
 
@@ -53,6 +53,7 @@ in rec {
       LESSHISTFILE = "${config.xdg.dataHome}/less/history";
       CARGO_HOME = "${config.xdg.configHome}/cargo";
       NVM_DIR="${config.xdg.dataHome}/nvm";
+      LPASS_AGENT_TIMEOUT="0";
     };
 
     initExtra = ''
