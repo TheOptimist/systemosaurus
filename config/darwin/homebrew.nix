@@ -28,6 +28,7 @@
 
     casks = [
       "alfred"
+      "monitorcontrol"
       "ubersicht"
 
       "firefox"
