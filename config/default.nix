@@ -12,7 +12,7 @@ let
       delta    # Better diff presentation
       gh       # GitHub CLI tool
     ];
-  };
+  };    
 
 in  {
 
@@ -40,9 +40,7 @@ in  {
     systemPackages = with pkgs; flatten [
       niv
       direnv
-
       procs
-      
       bat
       cowsay
       curl
@@ -52,9 +50,9 @@ in  {
       less
       ripgrep
       tmux
+      powershell
 
-      go
-      packer
+      go      
       
       customGit
       httpie
@@ -70,8 +68,9 @@ in  {
 
       (optional isLinux radicle-upstream)
 
-      nomad
       consul
+      nomad
+      packer
     ];
   };
 
