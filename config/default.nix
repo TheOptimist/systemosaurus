@@ -59,6 +59,7 @@ in  {
       ipcalc
       jq
       lazygit
+      ripgrep
 
       lastpass-cli
 
