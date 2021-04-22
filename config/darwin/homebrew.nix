@@ -50,6 +50,7 @@
 
       "parallels"
 
+      "appcleaner"
       "meld"
       "microsoft-remote-desktop"
       "radicle-upstream"
