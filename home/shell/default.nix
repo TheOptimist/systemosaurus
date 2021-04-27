@@ -43,7 +43,7 @@ in rec {
       please = "sudo";
       ktty = "echo \"/nix/store/$(ls /nix/store | grep '^d.*kitty-terminfo' | awk '{print $7}')/kitty.terminfo\"";
 
-      tellme = "[ $? -eq 0 ] && say 'nice one' ||  say 'you jackass'";
+      tellme = "[ $? -eq 0 ] && say \"nice one\" ||  say \"you jackass\"";
     };
  
     sessionVariables = {
