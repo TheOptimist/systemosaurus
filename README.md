@@ -44,7 +44,7 @@ Becaue I am far too early on in my journey with nix. Heavily inspired by:
 * https://github.com/lccambiaghi/nixpkgs
 * https://github.com/kitten/nix-system
 * https://github.com/lucperkins/nix-home-config
-
+* https://btwiusegentoo.github.io/nixconfig/
 ## Future
 Move to using flakes? Some of the repositories above seem to shorten the install
 workflow to install nix, clone the repository and then darwin-rebuild, which would
