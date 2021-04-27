@@ -45,6 +45,7 @@ in  {
       cowsay
       curl
       exa
+      glow
       imgcat
       imagemagick
       less
