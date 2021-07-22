@@ -9,10 +9,16 @@ in {
   programs.ssh = {
     enable = true;
     matchBlocks = {
-      "github.com" = {
+      "GitHub" = {
         hostname = "github.com";
         user = "github@georgecover.email";
         identityFile = "${home}/.ssh/github_rsa";
+      };
+
+      "BitBucket" = {
+        hostname = "bitbucket.org";
+        user = "georgecoverpythian";
+        identityFile = "${home}/.ssh/cover-tehama";
       };
     };
 
