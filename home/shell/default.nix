@@ -48,7 +48,6 @@ in rec {
  
     sessionVariables = {
       GITHUB_EMAIL = "5285122+TheOptimist@users.noreply.github.com";
-      GITHUB_API_TOKEN = "$(lp show --password api_tokens/github_tehama)";
       GPG_TTY = "$(tty)";
       LESSHISTFILE = "${config.xdg.dataHome}/less/history";
       CARGO_HOME = "${config.xdg.configHome}/cargo";
@@ -74,7 +73,31 @@ in rec {
       ln -s -f ~/.config/nixpkgs/home/shell/tmux.conf ~/.tmux.conf
       ln -s -f ~/.config/nixpkgs/home/shell/tmux.conf.local ~/.tmux.conf.local
 
-      export PATH="/usr/local/sbin:$PATH";
+      export NVM_DIR=${config.xdg.configHome}/nvm
+      source $(brew --prefix nvm)/nvm.sh
+
+      autoload -U add-zsh-hook
+      load-nvmrc() {
+        local node_version="$(nvm version)"
+        local nvmrc_path="$(nvm_find_nvmrc)"
+
+        if [ -n "$nvmrc_path" ]; then
+          local nvmrc_node_version=$(nvm version "$(cat "$nvmrc_path")")
+
+          if [ "$nvmrc_node_version" = "N/A" ]; then
+            nvm install
+          elif [ "$nvmrc_node_version" != "$node_version" ]; then
+            nvm use
+          fi
+        elif [ "$node_version" != "$(nvm version default)" ]; then
+          echo "Reverting to nvm default version"
+          nvm use default
+        fi
+      }
+      add-zsh-hook chpwd load-nvmrc
+      load-nvmrc
+
+      export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/sbin:$PATH";
     '';
 
     plugins = [
