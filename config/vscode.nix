@@ -52,11 +52,30 @@ let
       publisher = "Wattenberger";
       version   = "0.1.0";
       sha256    = "1cvx9yr7n49wbkyvd63bd7j731ab1j2ka0y66nzp5bw8a6cilmjb";
-    }{
+    }
+    {
       name      = "vscode-power-mode";
       publisher = "hoovercj";
       version   = "2.2.0";
       sha256    = "0v1vqkcsnwwbb7xbpq7dqwg1qww5vqq7rc38qfk3p6b4xhaf8scm";
+    }
+    {
+      name      = "cform";
+      publisher = "aws-scripting-guy";
+      version   = "0.0.24";
+      sha256    = "sha256-X3Om8uB94Va/uABnZhzm2ATbqj3wzqt/s2Z844lZcmU=";
+    }
+    {
+      name      = "vscode-cfn-lint";
+      publisher = "kddejong";
+      version   = "0.20.0";
+      sha256    = "sha256-XLKBONSAyFZndnPsZsvIXRhaORlE8U8WylGzaqQ6XFY=";
+    }
+    {
+      name      = "vscode-yaml";
+      publisher = "redhat";
+      version   = "0.21.1";
+      sha256    = "sha256-G47z2lUb2CYUc7g5v/NwjbZdK6XlERjPwXHRF4EmDN4=";
     }
   ]);
   customVSCode = pkgs.vscode-with-extensions.override {
