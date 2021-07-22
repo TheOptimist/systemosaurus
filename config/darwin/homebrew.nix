@@ -18,12 +18,15 @@
 
     brews = [
       "defaultbrowser"
+      "coreutils"
       "gpg"
       "graphviz"
       "librsvg"
       "pinentry-mac"
       "mas"
       "oci-cli"
+      "nvm"
+      "pyenv"
     ];
 
     casks = [
@@ -53,8 +56,10 @@
       "appcleaner"
       "meld"
       "microsoft-remote-desktop"
-      "radicle-upstream"
       "virtualbox"
+      "wireshark"
+
+      "steam"
     ];
 
     masApps = {
@@ -72,5 +77,4 @@
   system.activationScripts.extraUserActivation.text = ''
     ${config.system.activationScripts.homebrew.text}
   '';
-
 }
