@@ -27,7 +27,7 @@ in  {
   ];
 
   nix = {
-    package = pkgs.nix;
+    package = pkgs.nixUnstable;
     #extraOptions = "experimental-features = nix-command flakes";
 
     maxJobs = 8;
@@ -51,8 +51,7 @@ in  {
       less
       ripgrep
       tmux
-      powershell
-
+      
       go      
       
       customGit
@@ -73,6 +72,7 @@ in  {
       consul
       nomad
       packer
+      vault
     ];
   };
 
