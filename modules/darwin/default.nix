@@ -3,7 +3,6 @@
 
 {
   imports = [
-    <darwin/modules/homebrew.nix>
     ./security.nix
   ];
 }
